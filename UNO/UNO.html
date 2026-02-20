@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNO GAME</title>
+    <link rel="stylesheet" href="UNO.css">
+</head>
+<body>
+    <div class="phone">
+        <div class="background-decoration top-left"></div>
+        <div class="background-decoration bottom-right"></div>
+        <div class="background-decoration top-right"></div>
+
+        <div class="main-menu">
+            <div class="card-display-area">
+                <div class="card red-card" data-value="+1"><span>+1</span></div>
+                <div class="card green-card" data-value="+2"><span>+2</span></div>
+                <div class="card yellow-card" data-value="+7"><span>+7</span></div>
+                <div class="card blue-card" data-value="⇌"><span>⇌</span></div>
+                <div class="card wild-card" data-value="⊕"><span>⊕</span></div>
+                
+                <div class="game-logo">
+                    <h1 class="logo-font">UNO</h1>
+                </div>
+            </div>
+            
+            <div class="menu-buttons">
+                <a href="#" class="action-btn play-now">START GAME</a>
+                <a href="#rules-menu" class="action-btn view-rules">RULES</a>
+            </div>
+        </div>
+
+        <div id="rules-menu" class="rules-bg">
+            <div class="rules-content">
+                <h2 class="logo-font" style="font-size: 2.5rem; -webkit-text-stroke: 1px black;">RULES</h2>
+                <ol class="rules-list">
+                    <li>Match cards by color or number.</li>
+                    <li>Special cards like ⇌ reverse play.</li>
+                    <li>Wild cards (⊕) change the color.</li>
+                    <li>First player to zero cards wins!</li>
+                </ol>
+                <a href="#" class="action-btn">BACK</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
