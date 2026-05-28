@@ -1,0 +1,49 @@
+body {
+  background-color: #f0f0f0;
+}
+
+.navbar {
+  background-color: #212121 !important;
+}
+
+.navbar-brand,.nav-link {
+  color: #ffffff !important;
+}
+
+.section-bg {
+  background-color: #f0f0f0;
+  padding: 40px 0;
+  min-height: calc(100vh - 112px);
+}
+
+.card {
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  background-color: #ffffff;
+}
+
+.card img {
+  height: 200px;
+  object-fit: contain;
+  padding: 16px;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.badge-new {
+  background-color: #28a745;
+}
+
+.badge-sale {
+  background-color: #dc3545;
+}
+
+footer {
+  background-color: #212121;
+  color: #ffffff;
+  text-align: center;
+  padding: 14px;
+}
