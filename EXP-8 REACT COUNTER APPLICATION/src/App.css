@@ -1,0 +1,27 @@
+body {
+  margin: 0;
+  font-family: Arial;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  background: #f2f2f2;}
+.card {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);}
+h2 { font-size: 40px; margin: 15px 0; }
+.btns {
+  display: flex;
+  gap: 10px;
+  justify-content: center;}
+button {
+  padding: 8px 15px;
+  border: none;
+  background: #1e88e5;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;}
+button:hover { background: #1565c0; }
+.reset { margin-top: 10px; }
