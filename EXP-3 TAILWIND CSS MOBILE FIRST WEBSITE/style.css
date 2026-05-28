@@ -1,0 +1,15 @@
+.hero {
+  background: linear-gradient(to right, #bfdbfe, #818cf8);
+}
+
+.footer {
+  background: linear-gradient(to right, #93c5fd, #818cf8);
+}
+
+.card-title {
+  color: #ef4444;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
