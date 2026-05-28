@@ -1,0 +1,30 @@
+header {
+  background-color: #2d7dd2;
+  color: white;
+  padding: 40px;
+  text-align: center;
+}
+
+.navbar {
+  background-color: #2d2d2d;
+}
+
+.navbar-brand, .nav-link {
+  color: #ccc !important;
+}
+
+.content-section {
+  background-color: #ebebeb;
+  padding: 40px 0;
+}
+
+.col-md-6:last-child {
+  border-left: 1px solid #555;
+}
+
+footer {
+  background-color: #2d2d2d;
+  color: #aaa;
+  text-align: center;
+  padding: 15px;
+}
