@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UNO GAME</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+
+  <div id="menu-screen" class="screen active">
+    <div class="logo-wrap">
+      <div class="fan-card fc-r" data-v="+2"><span>+2</span></div>
+      <div class="fan-card fc-g" data-v="⇌"><span>⇌</span></div>
+      <div class="fan-card fc-y" data-v="7"><span>7</span></div>
+      <div class="fan-card fc-b" data-v="⊘"><span>⊘</span></div>
+      <div class="fan-card fc-w" data-v="★"><span>★</span></div>
+      <div class="logo-badge"><span class="logo-text">UNO</span></div>
+    </div>
+    <div class="menu-btns">
+      <button class="btn btn-play" onclick="showSetup()">START GAME</button>
+      <button class="btn btn-dark" onclick="showScreen('rules-screen')">RULES</button>
+    </div>
+  </div>
+
+  <div id="setup-screen" class="screen">
+    <div style="text-align:center;margin-bottom:8px;">
+      <span class="logo-text" style="font-size:2.5rem;">UNO</span>
+      <div style="font-size:0.85rem;color:rgba(255,255,255,0.6);margin-top:4px;">Game Setup</div>
+    </div>
+    <div class="panel">
+      <h3>Number of Players</h3>
+      <div class="count-ctrl">
+        <button onclick="changeCount(-1)">-</button>
+        <span id="player-count-disp">2</span>
+        <button onclick="changeCount(1)">+</button>
+        <span style="font-size:0.85rem;color:rgba(255,255,255,0.5);">(2–6 players)</span>
+      </div>
+    </div>
+    <div class="panel">
+      <h3>Player Names</h3>
+      <div id="player-inputs"></div>
+    </div>
+    <div style="display:flex;gap:10px;width:100%;">
+      <button class="btn btn-dark" style="flex:1" onclick="showScreen('menu-screen')">BACK</button>
+      <button class="btn btn-play" style="flex:2" onclick="startGame()">PLAY!</button>
+    </div>
+  </div>
+
+  <!-- GAME SCREEN -->
+  <div id="game-screen" class="screen">
+    <div class="top-bar">
+      <div>
+        <div class="turn-info">Current Turn</div>
+        <div class="turn-name" id="turn-name">Player 1</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <span id="direction-arrow" class="direction-arrow">➡</span>
+        <div id="color-indicator" class="color-indicator" style="background:#ed1c24;"></div>
+      </div>
+    </div>
+    <div class="opponents-area" id="opponents-area"></div>
+    <div class="game-area">
+      <div class="deck-pile">
+        <div class="deck-card" id="deck-btn" onclick="drawCard()"><span>UNO</span></div>
+        <div class="pile-label">DRAW</div>
+      </div>
+      <div class="discard-pile">
+        <div id="discard-display"></div>
+        <div class="pile-label">DISCARD</div>
+      </div>
+    </div>
+    <div class="msg-box" id="msg-box">Your turn! Play a card or draw.</div>
+    <div class="player-hand-area">
+      <div class="hand-label" id="hand-label">Your Hand</div>
+      <div class="hand-cards" id="hand-cards"></div>
+    </div>
+    <div class="action-bar">
+      <button class="btn btn-dark btn-sm" onclick="showScreen('menu-screen')">QUIT</button>
+    </div>
+  </div>
+
+  <div id="win-screen" class="screen">
+    <div class="trophy">🏆</div>
+    <div class="win-name" id="win-name"></div>
+    <div class="win-sub">played all their cards first!</div>
+    <button class="btn btn-play" style="width:60%;margin-top:8px" onclick="showSetup()">PLAY AGAIN</button>
+    <button class="btn btn-dark" style="width:60%" onclick="showScreen('menu-screen')">MAIN MENU</button>
+  </div>
+
+  <div id="rules-screen" class="screen">
+    <div style="text-align:center;margin-bottom:4px;">
+      <span class="logo-text" style="font-size:2.5rem;">UNO</span>
+      <div style="color:#ffcc00;font-weight:bold;font-size:1.1rem;margin-top:2px;">HOW TO PLAY</div>
+    </div>
+    <div class="rules-card"><div class="rule-num">1</div><div class="rule-text">Match the top discard card by <b>color</b> or <b>number</b>. First player to empty their hand wins!</div></div>
+    <div class="rules-card"><div class="rule-num">2</div><div class="rule-text"><b>Skip (⊘)</b> — next player loses their turn. <b>Reverse (⇌)</b> — play direction flips.</div></div>
+    <div class="rules-card"><div class="rule-num">3</div><div class="rule-text"><b>Draw Two (+2)</b> — next player draws 2 cards and loses their turn.</div></div>
+    <div class="rules-card"><div class="rule-num">4</div><div class="rule-text"><b>Wild (★)</b> — play anytime, choose any color. <b>Wild Draw 4 (+4)</b> — next player draws 4 and loses turn.</div></div>
+    <div class="rules-card"><div class="rule-num">5</div><div class="rule-text">If you can't play, <b>draw one card</b>. If it's playable you may play it immediately.</div></div>
+    <div class="rules-card"><div class="rule-num">6</div><div class="rule-text">When you have <b>1 card left</b>, shout <b>UNO!</b> (the game shows this automatically).</div></div>
+    <div class="card-legend">
+      <div class="legend-card" style="background:#ed1c24;">Red</div>
+      <div class="legend-card" style="background:#22b14c;">Green</div>
+      <div class="legend-card" style="background:#f0c000;color:#333;">Yellow</div>
+      <div class="legend-card" style="background:#00a2ed;">Blue</div>
+      <div class="legend-card" style="background:conic-gradient(#ed1c24 0% 25%,#00a2ed 25% 50%,#22b14c 50% 75%,#f0c000 75% 100%);">Wild</div>
+    </div>
+    <button class="btn btn-dark" style="width:60%" onclick="showScreen('menu-screen')">BACK</button>
+  </div>
+
+</div>
+
+<div id="overlay"></div>
+<div id="color-picker">
+  <h3>Choose a Color</h3>
+  <div class="color-grid">
+    <div class="cp-btn" style="background:#ed1c24" onclick="pickColor('red')"></div>
+    <div class="cp-btn" style="background:#22b14c" onclick="pickColor('green')"></div>
+    <div class="cp-btn" style="background:#f0c000" onclick="pickColor('yellow')"></div>
+    <div class="cp-btn" style="background:#00a2ed" onclick="pickColor('blue')"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
