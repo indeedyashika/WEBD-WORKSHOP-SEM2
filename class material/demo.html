@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo</title>
+    <body>
+        <h2>Hello Js!</h2>
+        <script>
+           // alert("Hello Js!");
+            // console.log("Hello Js!");
+            // let name="XYZ";
+            // let age="20";
+            // console.log("Name:" + name);
+            // console.log("age:" + age);
+            // let marks=25;
+            //if(marks>=50){
+            //    console.log("PASS");
+            //}
+            //else{
+            //    console.log("FAIL");
+            //}
+            let gap="\n";
+            for(let i=1; i<=5; i++){
+                for(let j=1; j<=i; j++){
+                    console.log("* ");
+                }
+                console.log(gap);
+            }
+
+            let rows = 5;
+
+for (let i = 1; i <= rows; i++) {
+  let rows = "";
+  for (let j = 1; j <= i; j++) {
+    rows += "*";
+  }
+  console.log(rows);
+}
+
+var a = 10;
+a="abc";
+console.log(a);
+
+let b = 20;
+b=30;
+console.log(b);
+
+const name = "xyz";
+console.log(name);
+
+//arrow function
+const add = (a, b) => {
+    return a + b;
+};
+console.log(add(5, 3));
+//map
+let numbers = [1, 2, 3, 4, 5];
+let squared = numbers.map(num => num * num);
+console.log(squared);
+//filter
+let numbers1 = [11, 32, 13, 14, 55];
+let result = numbers1.filter(num => num > 15);
+console.log(result);
+//reduce
+let numbers2 = [10, 20, 30, 40, 50];
+let sum = numbers2.reduce((total, num) => total + num, 0);
+console.log(sum);
+        </script>
+
+    </body>
+</html>
