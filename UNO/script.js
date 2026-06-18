@@ -1,5 +1,5 @@
 const COLORS = ['red', 'green', 'yellow', 'blue'];
-const COLOR_HEX = { red: '#ed1c24', green: '#22b14c', yellow: '#f0c000', blue: '#00a2ed' };
+const COLOR_HEX = { red: '#d62828', green: '#1a8a3a', yellow: '#e8a800', blue: '#0077cc' };
 const SPECIAL = { skip: '⊘', reverse: '⇌', draw2: '+2', wild: '★', wild4: '+4' };
 
 let G = {};
@@ -103,7 +103,7 @@ function startGame() {
 
 function cardBg(card) {
   if (card.color === 'wild') {
-    return 'conic-gradient(#ed1c24 0% 25%, #00a2ed 25% 50%, #22b14c 50% 75%, #f0c000 75% 100%)';
+    return 'conic-gradient(#d62828 0% 25%, #0077cc 25% 50%, #1a8a3a 50% 75%, #e8a800 75% 100%)';
   }
   return COLOR_HEX[card.color] || '#888';
 }
@@ -238,7 +238,6 @@ function playCard(idx) {
   setMsg(G.current === 0 ? "Your turn! Play a card or draw." : `${G.players[G.current].name}'s turn...`);
   aiMaybe();
 }
-
 
 function applyEffect(card) {
   switch (card.type) {
